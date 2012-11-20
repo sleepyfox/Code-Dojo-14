@@ -28,6 +28,9 @@ sumsFactory = (max) ->
   return sums
 
 describe 'String padding', ->
+  it 'an empty string should be padded to six zeroes', ->
+    pad('').should.equal '000000'
+
   it 'a string of one character should be padded to six', ->
     pad('1').should.equal '000001'
 
@@ -94,12 +97,15 @@ describe 'Sum hash generator', ->
 
 
 main = do ->
-  sums = sumsFactory 63
+  sums = sumsFactory 42 # first 20 decimals
+  length = 0
   for key of sums
     outputString = "#{key}: "
     for i in sums[key]
       outputString += "#{i} "
+      length++
     console.log outputString
+  console.log length
 
 
 
