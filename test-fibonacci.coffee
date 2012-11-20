@@ -95,6 +95,18 @@ describe 'Sum hash generator', ->
     sums[3][1].should.equal '100'
     sums[3][0].should.equal '11'
 
+zeckendorf = (string) ->
+  if string.indexOf('11') is -1 then true else false
+
+describe 'Zeckendorf filter', ->
+  it '0 should  be a Zeckendorf number', ->
+    zeckendorf('0').should.equal true
+
+  it '1 should be a Zeckendorf number', ->
+    zeckendorf('1').should.equal true
+
+  it '11 should not be a Zeckendorf number', ->
+    zeckendorf('11').should.equal false
 
 main = do ->
   sums = sumsFactory 42 # first 20 decimals
@@ -102,8 +114,9 @@ main = do ->
   for key of sums
     outputString = "#{key}: "
     for i in sums[key]
-      outputString += "#{i} "
-      length++
+      if zeckendorf i
+        outputString += "#{i} " 
+        length++
     console.log outputString
   console.log length
 
