@@ -5,9 +5,20 @@ pad = (string) ->
     string = '0' + string
   return string 
 
+fibonacciList = (numberOfElements) ->
+  for i in [0..numberOfElements - 1]
+    switch i
+      when 0
+        list = [1]
+      when 1
+        list.push 2
+      else
+        list.push list[i - 1] + list[i - 2]
+  return list
+  
 fibonacci = (number) ->
   sum = 0
-  fibNums = [13,8,5,3,2,1]
+  fibNums = fibonacciList(6).reverse()
   padded = pad(number)
   chars = padded.split ''
   for i in [0..5]
@@ -26,6 +37,10 @@ sumsFactory = (max) ->
       sums[sum] = []
     sums[sum].push binary i
   return sums
+
+zeckendorf = (string) ->
+  if string.indexOf('11') is -1 then true else false
+
 
 describe 'String padding', ->
   it 'an empty string should be padded to six zeroes', ->
@@ -95,8 +110,6 @@ describe 'Sum hash generator', ->
     sums[3][1].should.equal '100'
     sums[3][0].should.equal '11'
 
-zeckendorf = (string) ->
-  if string.indexOf('11') is -1 then true else false
 
 describe 'Zeckendorf filter', ->
   it '0 should  be a Zeckendorf number', ->
@@ -107,6 +120,31 @@ describe 'Zeckendorf filter', ->
 
   it '11 should not be a Zeckendorf number', ->
     zeckendorf('11').should.equal false
+
+
+describe 'Fibonacci list', ->
+  it 'the first Fibonacci number should be 1 (not zero as traditionally)', ->
+    list = fibonacciList 1
+    list[0].should.equal 1
+
+  it 'a list of one Fibonacci number should have one item in it', ->
+    list = fibonacciList 1
+    list.should.have.length 1
+
+  it 'a list of two Fibonacci numbers should be 1 and 2', ->
+    list = fibonacciList 2
+    list[0].should.equal 1
+    list[1].should.equal 2
+
+  it 'a list of three Fibonacci numbers should be 1, 2 and 3', ->
+    list = fibonacciList 3
+    list[0].should.equal 1
+    list[1].should.equal 2
+    list[2].should.equal 3
+
+  it 'a list of 20 Fibonacci numbers should have the 20th number being 10946', ->
+    list = fibonacciList 20
+    list[19].should.equal 10946
 
 main = do ->
   sums = sumsFactory 42 # first 20 decimals

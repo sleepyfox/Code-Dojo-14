@@ -14,6 +14,6 @@ I set up a watchr file (kata.watchr) so that the tests are run automatically eve
 
 The source of the kata is the Zeckendorf kata, from [rosettacode.org](http://rosettacode.org/)
 
-I've also linked the [slides]() from the meeting. You can find out more about the London Code Dojo at our [homepage](http://www.meetup.com/London-Code-Dojo/).
+I've also linked the [slides](https://speakerdeck.com/sleepyfox/code-dojo-14-late-nov-2012) from the meeting. You can find out more about the London Code Dojo at our [homepage](http://www.meetup.com/London-Code-Dojo/).
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported license - see [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)
