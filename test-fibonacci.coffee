@@ -111,17 +111,6 @@ describe 'Sum hash generator', ->
     sums[3][0].should.equal '11'
 
 
-describe 'Zeckendorf filter', ->
-  it '0 should  be a Zeckendorf number', ->
-    zeckendorf('0').should.equal true
-
-  it '1 should be a Zeckendorf number', ->
-    zeckendorf('1').should.equal true
-
-  it '11 should not be a Zeckendorf number', ->
-    zeckendorf('11').should.equal false
-
-
 describe 'Fibonacci list', ->
   it 'the first Fibonacci number should be 1 (not zero as traditionally)', ->
     list = fibonacciList 1
@@ -145,6 +134,18 @@ describe 'Fibonacci list', ->
   it 'a list of 20 Fibonacci numbers should have the 20th number being 10946', ->
     list = fibonacciList 20
     list[19].should.equal 10946
+
+
+describe 'Zeckendorf filter', ->
+  it '0 should  be a Zeckendorf number', ->
+    zeckendorf('0').should.equal true
+
+  it '1 should be a Zeckendorf number', ->
+    zeckendorf('1').should.equal true
+
+  it '11 should not be a Zeckendorf number', ->
+    zeckendorf('11').should.equal false
+
 
 main = do ->
   sums = sumsFactory 42 # first 20 decimals
