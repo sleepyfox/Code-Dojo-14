@@ -1,16 +1,16 @@
 Code Dojo 14
 ============
-This is my worked example from the 14th meeting of the London Code Dojo in late Nov 2012. Feel free to play around with it. You can run the code (assuming you have node, coffeescript, mocha and chai installed) with:
-
-    mocha --compilers coffee:coffee-script test-*.coffee
-
-You can install dependencies automatically with:
+This is my worked example from the 14th meeting of the London Code Dojo in late Nov 2012. Feel free to play around with it. You will need Node.js installed; you can install other dependencies automatically with:
 
     npm install
 
-I set up a watchr file (kata.watchr) so that the tests are run automatically every time you save a file in your editor, simply run watchr (assuming it is installed) with:
+You can run the tests with: 
+
+    npm test
+
+If you would like to automatically run the tests every time you make a change to the test file, then use:
     
-    watchr kata.watchr
+    npm run test-auto 
 
 The source of the kata is the Zeckendorf kata, from [rosettacode.org](http://rosettacode.org/)
 
