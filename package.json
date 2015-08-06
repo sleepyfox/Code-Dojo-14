@@ -1,17 +1,31 @@
 {
-  "name": "CodeDojo14",
+  "name": "Zeckendorf-kata",
   "description": "14th London Code Dojo kata - Zeckendorf numbers",
-  "version": "1.0.0",
-  "engine": "0.11.16",
+  "version": "1.0.1",
   "private": true,
-  "scripts": { 
+  "author": "@sleepyfox",
+  "scripts": {
     "test": "mocha --compilers coffee:coffee-script/register test-*.coffee",
     "test-auto": "mocha -w --compilers coffee:coffee-script/register test-*.coffee"
   },
   "dependencies": {
-    "chai": "~1.10.0",
-    "mocha": "~2.1.0",
-    "coffee-script": "~1.9.0",
-    "cucumber": "~0.4.7"
+    "coffee-script": "^1.9.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^7.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/sleepyfox/Code-Dojo-14/issues"
+  },
+  "keywords": [
+    "craftsmanship",
+    "kata",
+    "dojo",
+    "tdd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sleepyfox/Code-Dojo-14.git"
   }
 }

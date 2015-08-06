@@ -1,9 +1,9 @@
-should = require('chai').should()
+should = require 'should'
 
 pad = (string) ->
   while string.length < 6 # pad to six chars
     string = '0' + string
-  return string 
+  return string
 
 fibonacciList = (numberOfElements) ->
   for i in [0..numberOfElements - 1]
@@ -15,14 +15,14 @@ fibonacciList = (numberOfElements) ->
       else
         list.push list[i - 1] + list[i - 2]
   return list
-  
+
 fibonacci = (number) ->
   sum = 0
   fibNums = fibonacciList(6).reverse()
   padded = pad(number)
   chars = padded.split ''
   for i in [0..5]
-    if chars[i] is '1' 
+    if chars[i] is '1'
       sum += fibNums[i]
   return sum # a number
 
@@ -33,7 +33,7 @@ sumsFactory = (max) ->
   sums = {}
   for i in [1..max]
     sum = fibonacci binary i
-    unless sums[sum]? 
+    unless sums[sum]?
       sums[sum] = []
     sums[sum].push binary i
   return sums
@@ -69,7 +69,7 @@ describe 'Fibonacci sums', ->
   it 'The sum of the first and second Fibonacci numbers should be 3', ->
     fibonacci('11').should.equal 3
 
-  it 'The third Fibonacci number should be 3', -> 
+  it 'The third Fibonacci number should be 3', ->
     fibonacci('100').should.equal 3
 
 
@@ -82,7 +82,7 @@ describe 'Binary generator', ->
 
   it 'two in binary is 10', ->
     binary(2).should.equal '10'
-  
+
   it 'three in binary should be 11', ->
     binary(3).should.equal '11'
 
@@ -138,13 +138,13 @@ describe 'Fibonacci list', ->
 
 describe 'Zeckendorf filter', ->
   it '0 should  be a Zeckendorf number', ->
-    zeckendorf('0').should.equal true
+    zeckendorf('0').should.be.true
 
   it '1 should be a Zeckendorf number', ->
-    zeckendorf('1').should.equal true
+    zeckendorf('1').should.be.true
 
   it '11 should not be a Zeckendorf number', ->
-    zeckendorf('11').should.equal false
+    zeckendorf('11').should.be.false
 
 
 main = do ->
@@ -154,10 +154,7 @@ main = do ->
     outputString = "#{key}: "
     for i in sums[key]
       if zeckendorf i
-        outputString += "#{i} " 
+        outputString += "#{i} "
         length++
     console.log outputString
   console.log length
-
-
-
