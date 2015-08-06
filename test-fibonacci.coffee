@@ -149,12 +149,6 @@ describe 'Zeckendorf filter', ->
 
 main = do ->
   sums = sumsFactory 42 # first 20 decimals
-  length = 0
   for key of sums
-    outputString = "#{key}: "
-    for i in sums[key]
-      if zeckendorf i
-        outputString += "#{i} "
-        length++
+    outputString = "#{key}: " + sums[key].filter zeckendorf
     console.log outputString
-  console.log length
